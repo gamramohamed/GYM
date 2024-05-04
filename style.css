@@ -1,0 +1,135 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Carter One";
+}
+
+body{
+  position: relative;
+}
+.header {
+  margin: 0 auto;
+  align-items: center;
+}
+
+.container {
+  display: grid;
+  /* place-items: center; */
+  margin-inline: auto;
+  padding-block: 5rem;
+}
+
+.card_cont {
+  display: grid;
+  row-gap: 3.5rem;
+}
+
+.cardArticle {
+  position: relative;
+  overflow: hidden;
+}
+a {
+  text-decoration: none;
+}
+.cardData {
+  width: auto;
+  background: white;
+  color: black;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  border-radius: 20px;
+  position: absolute;
+  bottom: -9rem;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  /* opacity: 0; */
+  transition: opacity 1s 1s;
+}
+
+/* naming animation */
+.cardArticle:hover{
+  animation: remove-overflow 2s forwards;
+}
+
+.cardArticle:hover .cardData{
+  animation: show-data 1s forwards;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+.cardArticle:not(:hover){
+  animation: show-overflow 2s forwards;
+}
+
+.cardArticle:not(:hover) .cardData{
+  animation: remove-data .5s forwards;
+  opacity: 1;
+}
+
+/* card animation */
+@keyframes show-data{
+  50%{
+    transform: translateY(-10rem);
+  }
+  100%{
+    transform: translateY(-7.5rem);
+  }
+}
+
+@keyframes remove-overflow{
+  from ,to{
+    overflow: initial;
+  }
+}
+
+@keyframes remove-data{
+  0%{
+    transform: translateY(-7.5rem);
+  }
+  50%{
+    transform: translateY(-10rem);
+  }
+  100%{
+    transform: initial;
+  }
+}
+
+@keyframes show-overflow{
+  0%{
+    overflow: initial;
+  }
+  50%{
+    overflow: hidden;
+  }
+}
+
+/* media */
+@media screen and (min-width: 576px){
+  .card_cont{
+    grid-template-columns: repeat(2,1fr);
+    column-gap: 1rem;
+  }
+}
+@media (min-width: 780px){
+  .card_cont{
+    grid-template-columns: repeat(3,1fr);
+    column-gap: 3.5rem;
+  }
+}
+@media (min-width: 1000px){
+  .card_cont{
+    grid-template-columns: repeat(4,1fr);
+    column-gap: 3.5rem;
+  }
+}
+
+#Excecises{
+  color: rgba(255, 0, 0, 0.658);
+  text-align: center;
+}
+
+button img{
+  width: 45px;
+}
